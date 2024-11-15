@@ -3,6 +3,9 @@
     Created on : Sep 15, 2023, 8:14:39 AM
     Author     : KHOACNTT
 --%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Sach"%>
+<%@page import="model.Sach"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!--nhung noi dung header.jsp-->
@@ -26,86 +29,34 @@
                 <div class="row">       
                     <div class="col-sm-12">
                         <div class="row">                       
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card mb-2">
-                                    <div class="card-header">
-                                        Product name
-                                    </div>
-                                    <div class="card-body">
-                                        <img class="card-img" src="assets/images/products/pic01.jpg" alt="Card image cap">                         
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">200 $</p>
-                                            </div>
-                                            <div class="col text-end">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>              
+                 <%
+                    ArrayList<Sach> dsSach =(ArrayList<Sach>)request.getAttribute("dsSach");
+                    for(Sach s: dsSach)
+                    {
+                %>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-2">
+                        <div class="card-header">
+                            <%=s.getTensach() %>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="assets/images/products/<%=s.getHinh() %>" alt="Card image cap">                         
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btn btn-danger btn-block"><%=s.getDongia() %></p>
+                                </div>
+                                <div class="col text-end">
+                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card mb-2">
-                                    <div class="card-header">
-                                        Product name
-                                    </div>
-                                    <div class="card-body">
-                                        <img class="card-img" src="assets/images/products/pic01.jpg" alt="Card image cap">                         
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">200 $</p>
-                                            </div>
-                                            <div class="col text-end">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>              
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card mb-2">
-                                    <div class="card-header">
-                                        Product name
-                                    </div>
-                                    <div class="card-body">
-                                        <img class="card-img" src="assets/images/products/pic01.jpg" alt="Card image cap">                         
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">200 $</p>
-                                            </div>
-                                            <div class="col text-end">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>              
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card mb-2">
-                                    <div class="card-header">
-                                        Product name
-                                    </div>
-                                    <div class="card-body">
-                                        <img class="card-img" src="assets/images/products/pic01.jpg" alt="Card image cap">                         
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">200 $</p>
-                                            </div>
-                                            <div class="col text-end">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>              
-                            </div>
+                        </div>
+                    </div>              
+                </div>
+               <%
+                   }
+               %>
                         </div>                       
                     </div>
 
